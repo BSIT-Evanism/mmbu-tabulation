@@ -14,6 +14,7 @@ function Scoring() {
     const [loading, setLoading] = useState(false)
     const [submitScore, setSubmitScore] = useState(false)
     const [prevScore, setPrevScore] = useState([])
+    const [locker, setLocker] = useState(false)
 
     global.EventSource = eventsource;
 
@@ -28,6 +29,7 @@ function Scoring() {
                 console.log(res);
                 console.log(dat);
                 setTopics(res[0].topic)
+                console.log(topics)
                 const data = await pb.collection('Scores').getFullList({
                     filter: `judge = "${localStorage.getItem('judge')}" && topic = "${res[0].topic}"`,
                 })
@@ -74,20 +76,23 @@ function Scoring() {
         <>
             <Toaster />
 
+
+            {locker && (<div className='fixed w-screen h-screen bg-black opacity-50 z-50 scale-10 translate-y-[-100px]'></div>)}
             <div className='flex flex-col'>
+
                 <div className="flex content-center w-[75vw] my-12 bg-white rounded-3xl py-2 px-10 shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
                     <div className="flex gap-24 m-3">
                         <h1 className='text-base my-1 font-normal text-gray-600'>Segment</h1>
                         <h1 className='text-2xl font-bold'>{topics === 'swimwear' ? "Swimwear Competition" : topics === 'formal' ? "Formal Attire" : "Question and Answer"}</h1>
                     </div>
                 </div>
-                
+
                 <div className='flex w-[75vw] bg-white rounded-3xl p-10 flex-col shadow-[0_8px_30px_rgb(0,0,0,0.12)]'>
                     <div className="flex gap-5">
                         <div onClick={() => changeTab("male")} className={`px-10 text-xl cursor-pointer py-5 rounded-t-xl border-2 border-b-0 hover:bg-slate-200 ${gender === 'male' && "bg-sky-400 text-white hover:bg-sky-600"} `}>{loading ? <p className='animate-spin'>O</p> : "Male"}</div>
                         <div onClick={() => changeTab("female")} className={`px-10 text-xl cursor-pointer py-5 rounded-t-xl border-2 border-b-0 hover:bg-slate-200 ${gender === 'female' && "bg-pink-400 text-white hover:bg-pink-600"} `}>{loading ? <p className='animate-spin'>O</p> : "Female"}</div>
                     </div>
-                    <table className= {`flex flex-col border border-separate gap-6 h-full border-2 py-5 ${gender === 'male' ? 'shadow-2xl shadow-blue-500/20' : 'shadow-2xl shadow-pink-500/20'}`}> 
+                    <table className={`flex flex-col border border-separate gap-6 h-full border-2 py-5 ${gender === 'male' ? 'shadow-2xl shadow-blue-500/20' : 'shadow-2xl shadow-pink-500/20'}`}>
                         <thead>
 
                             {topics === 'swimwear' ? (
@@ -127,7 +132,7 @@ function Scoring() {
                                     <td className='font-semibold w-44'>{dat.nameId}</td>
                                     {/* <td onClick={() => setSubmitScore(true)} className='text-center font bold bg-blue-400 rounded-2xl px-4 py-2 font-bold text-white'>Submit Scores</td> */}
                                     <td className='ps-0'>
-                                        <ScoreLine candidateGender={dat.gender} prevScore={prevScore} topic={topics} candidate={dat.Name} candidateNum={dat.nameId} candidateId={dat.id} judge={localStorage.getItem('judge')} />
+                                        <ScoreLine lockFunc={setLocker} candidateGender={dat.gender} prevScore={prevScore} topic={topics} candidate={dat.Name} candidateNum={dat.nameId} candidateId={dat.id} judge={localStorage.getItem('judge')} />
                                     </td>
                                 </tr>
                             ))}

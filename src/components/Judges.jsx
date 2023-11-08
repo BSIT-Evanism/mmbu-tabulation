@@ -26,11 +26,15 @@ function Judge() {
             setLock(e.record.viewunlock)
             console.log(e.record.viewunlock);
         });
+        pb.collection('ControlUnlock').getOne('65p9fcb4a3471qk')
     }, [])
 
     useEffect(() => {
         async function LoginFetch() {
             const res = await pb.collection('Judges').getFullList()
+            const viewunlock = await pb.collection('ControlUnlock').getOne('65p9fcb4a3471qk')
+            setLock(viewunlock.viewunlock)
+            console.log(viewunlock.viewunlock)
             console.log(res);
             setData(res)
         }
@@ -71,6 +75,7 @@ function Judge() {
         try {
             const main = data ? data.filter((item) => item.secretkey === key)[0].id : false;
             const loggedin = await pb.collection('Judges').getOne(main)
+            console.log(main)
             console.log(main)
             if (loggedin.loggedin === true) {
                 toast.dismiss()
