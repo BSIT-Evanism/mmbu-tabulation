@@ -10,13 +10,17 @@ function Dashboard() {
     const [judge, setJudge] = React.useState([])
     const [pickedJudge, setPickedJudge] = React.useState('')
 
+
     useEffect(() => {
         if (localStorage.getItem('admin') === null) {
             window.location.href = '/adminview'
         }
+        const events = localStorage.getItem('events')
         async function getJudge() {
             try {
-                const res = await pb.collection('Judges').getFullList()
+                const res = await pb.collection('Judges').getFullList({
+                    filter: `isCoronation = "${events}"`
+                })
                 setJudge(res)
             } catch (error) {
                 console.log(error)
@@ -24,6 +28,8 @@ function Dashboard() {
         }
         getJudge()
     }, [])
+
+
 
     async function getToggle() {
         try {
