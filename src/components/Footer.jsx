@@ -2,7 +2,7 @@ import * as React from "react";
 
 function Footer(props) {
     return (
-        <section className="flex flex-col">
+        <section className="flex flex-col mt-12">
             <header className="bg-fuchsia-800 self-stretch flex w-full flex-col pt-14 pb-16 px-5 max-md:max-w-full">
                 <div className="self-center flex w-full max-w-[1090px] flex-col max-md:max-w-full">
                     <div className="flex w-[571px] max-w-full items-start gap-3.5 ml-6 self-start max-md:flex-wrap">
