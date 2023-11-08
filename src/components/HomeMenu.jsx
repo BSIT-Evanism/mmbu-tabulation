@@ -27,6 +27,13 @@ function HomeMenu() {
         },
     }
 
+    useEffect(() => {
+        function getEvent() {
+            localStorage.setItem('events', picked === "closed" ? false : true)
+        }
+        getEvent()
+    }, [picked])
+
     return (
         <div className="overflow-x-hidden">
             <div className="w-screen h-[95vh] flex justify-center items-center">
