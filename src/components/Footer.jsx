@@ -24,16 +24,29 @@ function Footer(props) {
                         <p className="text-stone-300 text-base max-w-[623px] grow shrink-0 basis-auto mt-2.5 self-start max-md:max-w-full">
                             This tabulation web app was developed for Bicol University - University Student Council <br /> by Google Developer Student Clubs Bicol University.
                         </p>
-                        <img
-                            loading="lazy"
-                            src="/img/usc_logo.png" className="aspect-[1.15] object-contain object-center w-[86px] bg-blend-lighten overflow-hidden self-stretch max-w-full"
-                            alt="Image 1"
-                        />
-                        <img
-                            loading="lazy"
-                            src="/img/gdsc_logover2.png" className="aspect-[1.0] object-contain object-center w-[87px] overflow-hidden self-center max-w-full my-auto"
-                            alt="Image 2"
-                        />
+                                    
+                        <div className="flex flex-row justify-end gap-2">
+                            <img
+                                loading="lazy"
+                                src="/img/usc_logo.png" className="aspect-[1.15] object-contain object-center w-[86px] bg-blend-lighten overflow-hidden self-stretch max-w-full"
+                                alt="BU-USC"
+                            />
+                            <img
+                                loading="lazy"
+                                src="/img/gdscbu_logo.png" className="aspect-[1.0] object-contain object-center w-[77px] overflow-hidden self-center max-w-full my-auto"
+                                alt="GDSC BU"
+                            />
+                            <img
+                                loading="lazy"
+                                src="/img/buou_logo.png" className="aspect-[0.75] px-4 object-contain object-center w-[80px] overflow-hidden self-center max-w-full my-auto"
+                                alt="BU Open University"
+                            />
+                            <img
+                                loading="lazy"
+                                src="/img/audit_logo.png" className="aspect-[1.0] object-contain object-center w-[75px] overflow-hidden self-center max-w-full my-auto"
+                                alt="Audit Committee"
+                            />
+                        </div>
                     </div>
                 </div>
             </header>
