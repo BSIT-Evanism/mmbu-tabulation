@@ -79,6 +79,8 @@ function AdminTable({ judgeId, topic }) {
                     ))} */}
                     <tr>
                         <td></td>
+                        <td></td>
+                        <td></td>
                         {Object.keys(filteredData)
                             .map((candidateName, index) => {
                                 const candidateData = filteredData[candidateName];
@@ -131,7 +133,9 @@ function AdminTable({ judgeId, topic }) {
                             const subcriterias = candidateData[0].subcriterias;
                             return (
                                 <tr className="bg-white border-b" key={index}>
+                                    <td className='text-center capitalize'>{candidateData[index].expand.candidate.nameId}</td>
                                     <td className='text-center'>{candidateName}</td>
+                                    <td className='text-center capitalize'>{candidateData[index].expand.candidate.college}</td>
                                     <td className='py-3'>
                                         <table>
                                             <tbody>
