@@ -76,6 +76,7 @@ function Scoring() {
         <>
             <Toaster />
 
+
             {locker && (<div className='fixed w-screen h-screen bg-black opacity-50 z-50 scale-10 translate-y-[-100px]'></div>)}
             <div className='flex flex-col'>
 
