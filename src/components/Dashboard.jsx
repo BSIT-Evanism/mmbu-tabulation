@@ -28,7 +28,7 @@ function Dashboard() {
     async function getToggle() {
         try {
             setLoading(true)
-            const res = await pb.collection('ControlUnlock').update('w3kuc2a0rtq7x5e', { viewunlock: toggle })
+            const res = await pb.collection('ControlUnlock').update('65p9fcb4a3471qk', { viewunlock: toggle })
             setToggle(!toggle)
             setLoading(false)
         } catch (error) {
@@ -39,7 +39,7 @@ function Dashboard() {
 
     async function getTopic(ev) {
         try {
-            const res = await pb.collection('Topic').update('l1qoc0mlnovtslm', { topic: ev })
+            const res = await pb.collection('Topic').update('fa6kjx16h3sxncf', { topic: ev })
             setTopic(ev)
             console.log(res)
         } catch (error) {
@@ -49,7 +49,7 @@ function Dashboard() {
 
     return (
         <div className='w-full h-full bg-white'>
-            <Header/>
+            <Header />
             <div className="flex overflow-hidden flex-col gap-10 items-center">
                 <div className='flex gap-10 w-2/3 m-10 justify-between'>
                     <div className='flex flex-col gap-3'>
@@ -62,7 +62,7 @@ function Dashboard() {
                             </select>
                         </div>
                         <div className='shadow-xl flex gap-20 px-5 h-14 place-items-center rounded-2xl'>
-                            <span className='w-7 text-center text-xl'>Judge</span> 
+                            <span className='w-7 text-center text-xl'>Judge</span>
                             <select onChange={(e) => setPickedJudge(e.target.value)} className='p-4 w-96 text-2xl uppercase font-bold rounded-xl text-center' name="topic" id="topic">
                                 {judge.map((item, index) => (
                                     <option key={index} value={item.id}>{item.Name}</option>
