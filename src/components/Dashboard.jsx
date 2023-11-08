@@ -19,8 +19,9 @@ function Dashboard() {
         async function getJudge() {
             try {
                 const res = await pb.collection('Judges').getFullList({
-                    filter: `isCoronation = "${events}"`
+                    filter: `isCoronation = ${events}`
                 })
+                console.log(res)
                 setJudge(res)
             } catch (error) {
                 console.log(error)
