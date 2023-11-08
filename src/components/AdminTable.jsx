@@ -61,7 +61,9 @@ function AdminTable({ judgeId, topic }) {
             <table className="rounded-2xl w-2/3 m-auto shadow-xl table-fixed overflow-scroll [&::-webkit-scrollbar]:w-0">
                 <thead>
                     <tr>
+                        <th className="px-4 py-2">Candidate</th>
                         <th className="px-4 py-2">Name</th>
+                        <th className="px-4 py-2">College/Unit</th>
                         <th className="">Subcriterion</th>
                         <th className="ps-4 py-2 pe-30">Total</th>
                     </tr>
@@ -76,6 +78,8 @@ function AdminTable({ judgeId, topic }) {
                         </tr>
                     ))} */}
                     <tr>
+                        <td></td>
+                        <td></td>
                         <td></td>
                         {Object.keys(filteredData)
                             .map((candidateName, index) => {
@@ -129,7 +133,9 @@ function AdminTable({ judgeId, topic }) {
                             const subcriterias = candidateData[0].subcriterias;
                             return (
                                 <tr className="bg-white border-b" key={index}>
+                                    <td className='text-center capitalize'>{candidateData[index].expand.candidate.nameId}</td>
                                     <td className='text-center'>{candidateName}</td>
+                                    <td className='text-center capitalize'>{candidateData[index].expand.candidate.college}</td>
                                     <td className='py-3'>
                                         <table>
                                             <tbody>
