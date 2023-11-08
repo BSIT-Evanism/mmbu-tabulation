@@ -74,7 +74,7 @@ function Scoring() {
         <>
             <Toaster />
 
-            <div className='flex flex-col h-screen'>
+            <div className='flex flex-col'>
                 <div className="flex content-center w-[75vw] my-12 bg-white rounded-3xl py-2 px-10 shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
                     <div className="flex gap-24 m-3">
                         <h1 className='text-base my-1 font-normal text-gray-600'>Segment</h1>
