@@ -24,6 +24,7 @@ function Scoring() {
                 const res = await pb.collection('Topic').getFullList()
                 const dat = await pb.collection('Candidates').getFullList({
                     filter: `gender = "${gender}"`,
+                    filter: `isFinalist = "${isFinalist}"`,
                     sort: '+nameId'
                 })
                 console.log(res);
@@ -50,6 +51,7 @@ function Scoring() {
             toast.loading('Loading')
             const dat = await pb.collection('Candidates').getFullList({
                 filter: `gender = "${e}"`,
+                filter: `isFinalist = "${isFinalist}"`,
                 sort: '+nameId'
             })
             setData(dat)
