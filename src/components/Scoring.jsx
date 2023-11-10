@@ -120,8 +120,8 @@ function Scoring() {
                                 <tr className='flex gap-6 text-black text-lg'>
                                     <th className='w-56'>Candidates</th>
                                     {/* <th>Scores</th> */}
-                                    <th className='w-64'>Intelligence (25%)</th>
-                                    <th className='w-64'>Poise and Personality (25%)</th>
+                                    <th className='w-64'>Intelligence (50%)</th>
+                                    <th className='w-64'>Poise and Personality (50%)</th>
                                     <th className='w-48'>Status</th>
                                 </tr>
                             ) : (<tr><th>not found</th></tr>)}
